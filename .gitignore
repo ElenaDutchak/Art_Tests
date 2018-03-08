@@ -1,0 +1,8 @@
+# IntellijIdea files
+.idea/
+allure-results/
+.allure/
+target/
+*.iml
+*.log
+
