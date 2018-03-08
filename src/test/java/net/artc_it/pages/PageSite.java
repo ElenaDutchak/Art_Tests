@@ -120,6 +120,36 @@ public class PageSite {
         }
     }
 
+/* Вместо getTextResultMessage(boolean isMustPresent) могли быть 2 процедуры без параметров:
+
+    // это вариант процедуры вызвать если ожидаем увидеть сообщение
+    public String getTextResultMessage() {
+        LOGGER.debug("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
+        try {
+            // ожидаем (явно) когда свойство overflow веб-элемента resultMessage станет = "visible"
+            new WebDriverWait(driver, 2).until(Function -> {
+                return resultMessage.getCssValue("overflow").equals("visible");
+            });
+            return resultMessage.getText();
+        } catch (TimeoutException e) {
+            return "";
+        }
+    }
+
+    // это вариант процедуры вызвать для провеки что сообщение не отображается
+    public boolean isHideResultMessage() {
+        LOGGER.debug("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
+        try {
+            // ожидаем (явно) когда свойство overflow веб-элемента resultMessage станет = "visible"
+            return new WebDriverWait(driver, 2).until(Function -> {
+                return resultMessage.getCssValue("overflow").equals("hidden");
+            });
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+*/
+
     public void sendMessageForm(String name, String phone, String email, String message) {
         setName(name);
         setPhone(phone);
