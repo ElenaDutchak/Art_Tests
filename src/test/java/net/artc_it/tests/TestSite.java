@@ -1,15 +1,15 @@
 package net.artc_it.tests;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.File;
-import java.io.IOException;
 
-import org.apache.commons.io.*;
+/*
+Для построения отчётов Allure:
+1) запускать из терминала (): mvn clean test && mvn allure:report
+2) открыть браузером файл (потом можно просто обновлять): /target/site/allure-maven-plugin/index.html
+*/
 
 public class TestSite extends BaseTestSite {
 
@@ -37,9 +37,3 @@ public class TestSite extends BaseTestSite {
         Assert.assertTrue(page.getTextResultMessage(false).isEmpty(), "Mistaken message about sending is present!");
     }
 }
-//    File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//        try {
-//                FileUtils.copyFile(src, new File("D:\\Screen01.png"));
-//                } catch (IOException e) {
-//                e.printStackTrace();
-//                }

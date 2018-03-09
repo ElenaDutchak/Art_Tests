@@ -23,9 +23,9 @@
         <!--<parameter name="browser" value="novisual"/>-->
         <!--<classes>-->
             <!--<class name="net.artc_it.tests.TestSite">-->
-                <!--<methods>-->
-                    <!--<include name="testTimeForLoafPage" />-->
-                <!--</methods>-->
+                <!--&lt;!&ndash;<methods>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<include name="testTimeForLoafPage" />&ndash;&gt;-->
+                <!--&lt;!&ndash;</methods>&ndash;&gt;-->
             <!--</class>-->
         <!--</classes>-->
     <!--</test>-->
@@ -40,12 +40,6 @@
     <!--</test>-->
     <!--<test name="FirefoxTest">-->
         <!--<parameter name="browser" value="firefox"/>-->
-        <!--<packages>-->
-            <!--<package name="net.artc_it.tests"/>-->
-        <!--</packages>-->
-    <!--</test>-->
-    <!--<test name="OperaTest">-->
-        <!--<parameter name="browser" value="opera"/>-->
         <!--<packages>-->
             <!--<package name="net.artc_it.tests"/>-->
         <!--</packages>-->
