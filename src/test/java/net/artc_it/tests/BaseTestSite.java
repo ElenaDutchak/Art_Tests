@@ -1,17 +1,15 @@
 package net.artc_it.tests;
 
-import net.artc_it.WebDriverLogger;
 import net.artc_it.pages.PageSite;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -21,12 +19,9 @@ import java.lang.reflect.Method;
 
 public class BaseTestSite {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestSite.class);
-
     private static final String PATH_SCREENSHOT = "./target/screenshots/";
 
-    public static EventFiringWebDriver driver;
-    public static WebDriverLogger webDriverLogger;
+    public static WebDriver driver;
     public static PageSite page;
     static String browser;
     private static int numOfTest;
@@ -34,18 +29,19 @@ public class BaseTestSite {
     @BeforeSuite
     public static void OneSetupForAllTests() {
         // удалим старые скриншоты
-        LOGGER.info("Delete " + PATH_SCREENSHOT);
+        System.out.println("Delete " + PATH_SCREENSHOT);
         try {
             FileUtils.deleteDirectory(new File(PATH_SCREENSHOT));
         } catch (IOException e) {
-            LOGGER.error(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
     @BeforeMethod
     public void handleTestMethodName(Method method) {
-        LOGGER.info("Starting "+ ++numOfTest + " test (" + browser + "): " + method.getName());
+        System.out.println("Starting "+ ++numOfTest + " test (" + browser + "): " + method.getName());
     }
+
     @AfterMethod
     public void takeScreenshotWhenFailure(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
@@ -61,7 +57,7 @@ public class BaseTestSite {
             return source;
         }
         catch(IOException e) {
-            LOGGER.error("Failed to capture screenshot (" + fileName + "): " + e.getMessage());
+            System.out.println("Failed to capture screenshot (" + fileName + "): " + e.getMessage());
             return null;
         }
     }
@@ -86,14 +82,13 @@ public class BaseTestSite {
             System.setProperty("phantomjs.binary.path", ".\\src\\test\\resources\\drivers\\phantomjs.exe");
             driver = new EventFiringWebDriver(new PhantomJSDriver());
         }
-        driver.register(webDriverLogger = new WebDriverLogger());
 
         page = new PageSite(driver);
 
-        LOGGER.debug("title = " + driver.getTitle());
+        System.out.println("title = " + driver.getTitle());
         if (!driver.getTitle().equals("Art Consulting")) {
             driver.quit();
-            LOGGER.error("Title of site is wrong! Stoping testing!");
+            System.out.println("Title of site is wrong! Stoping testing!");
             System.exit(1);
         }
     }

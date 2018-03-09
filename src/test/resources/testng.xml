@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="TestWithOneBrowser">
-    <test name="ChromeTest">
-        <parameter name="browser" value="chrome"/>
-        <packages>
-            <package name="net.artc_it.tests"/>
-        </packages>
-    </test>
-</suite>
+<!--<suite name="TestWithOneBrowser">-->
+    <!--<test name="ChromeTest">-->
+        <!--<parameter name="browser" value="chrome"/>-->
+        <!--<packages>-->
+            <!--<package name="net.artc_it.tests"/>-->
+        <!--</packages>-->
+    <!--</test>-->
+<!--</suite>-->
 
 <!--<suite name="TestDebugWithoutBrowser">-->
     <!--<test name="TestDebugWithoutBrowser">-->
@@ -23,25 +23,25 @@
         <!--<parameter name="browser" value="novisual"/>-->
         <!--<classes>-->
             <!--<class name="net.artc_it.tests.TestSite">-->
-                <!--&lt;!&ndash;<methods>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<include name="testTimeForLoafPage" />&ndash;&gt;-->
-                <!--&lt;!&ndash;</methods>&ndash;&gt;-->
+                <!--<methods>-->
+                    <!--<include name="testTimeForLoafPage" />-->
+                <!--</methods>-->
             <!--</class>-->
         <!--</classes>-->
     <!--</test>-->
 <!--</suite>-->
 
-<!--<suite name="CrossBrowserArtTest">-->
-    <!--<test name="ChromeTest">-->
-        <!--<parameter name="browser" value="chrome"/>-->
-        <!--<packages>-->
-            <!--<package name="net.artc_it.tests"/>-->
-        <!--</packages>-->
-    <!--</test>-->
-    <!--<test name="FirefoxTest">-->
-        <!--<parameter name="browser" value="firefox"/>-->
-        <!--<packages>-->
-            <!--<package name="net.artc_it.tests"/>-->
-        <!--</packages>-->
-    <!--</test>-->
-<!--</suite>-->
+<suite name="CrossBrowserArtTest">
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <packages>
+            <package name="net.artc_it.tests"/>
+        </packages>
+    </test>
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <packages>
+            <package name="net.artc_it.tests"/>
+        </packages>
+    </test>
+</suite>

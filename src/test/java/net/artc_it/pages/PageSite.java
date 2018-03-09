@@ -7,18 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.Thread.sleep;
 
 public class PageSite {
 
     final String SITE_URL = "http://artc-it.net";
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(PageSite.class);
 
     private long timeLoadPage;
 
@@ -108,7 +103,7 @@ public class PageSite {
         // иначе = тексту веб-элемента
         final String textWaitEr = isMustPresent ? "" : resultMessage.getText();
         // пишем в лог текущее значение свойства overflow веб-элемента resultMessage
-        LOGGER.debug("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
+        System.out.println("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
         try {
             // ожидаем (явно) когда свойство overflow веб-элемента resultMessage станет = значению константы state
             new WebDriverWait(driver, 2).until(Function -> {
@@ -124,7 +119,7 @@ public class PageSite {
 
     // это вариант процедуры вызвать если ожидаем увидеть сообщение
     public String getTextResultMessage() {
-        LOGGER.debug("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
+        System.out.println("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
         try {
             // ожидаем (явно) когда свойство overflow веб-элемента resultMessage станет = "visible"
             new WebDriverWait(driver, 2).until(Function -> {
@@ -138,7 +133,7 @@ public class PageSite {
 
     // это вариант процедуры вызвать для провеки что сообщение не отображается
     public boolean isHideResultMessage() {
-        LOGGER.debug("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
+        System.out.println("resultMessage.overflow: " + resultMessage.getCssValue("overflow"));
         try {
             // ожидаем (явно) когда свойство overflow веб-элемента resultMessage станет = "visible"
             return new WebDriverWait(driver, 2).until(Function -> {
@@ -186,7 +181,7 @@ public class PageSite {
      */
     private void LogDebugAboutElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        LOGGER.debug("executeScript: " +
+        System.out.println("executeScript: " +
                 js.executeScript("var items = {}; " +
                                 "for (index = 0; index < arguments[0].attributes.length; ++index) { items[arguments[0].attributes[index].name] = arguments[0].attributes[index].value }; return items;",
                         element));

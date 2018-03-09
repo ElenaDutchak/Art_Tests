@@ -1,19 +1,9 @@
 package net.artc_it.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-/*
-Для построения отчётов Allure:
-1) запускать из терминала (): mvn clean test && mvn allure:report
-2) открыть браузером файл (потом можно просто обновлять): /target/site/allure-maven-plugin/index.html
-*/
+import org.testng.annotations.Test;
 
 public class TestSite extends BaseTestSite {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestSite.class);
 
     @Test
     public void testTimeForLoafPage() {
@@ -32,7 +22,7 @@ public class TestSite extends BaseTestSite {
     public void testSendEmptyName() {
         page.sendMessageForm("", "+380664952327", "gh@fg.com", "аофыарфоллд.");
         String validationMessage = page.getValidationMessage();
-        LOGGER.debug("validationMessage = " + validationMessage);
+        System.out.println("validationMessage = " + validationMessage);
         Assert.assertFalse(validationMessage.isEmpty(), "No warning validation message about empty name!");
         Assert.assertTrue(page.getTextResultMessage(false).isEmpty(), "Mistaken message about sending is present!");
     }
