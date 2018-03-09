@@ -5,12 +5,10 @@ import net.artc_it.pages.PageSite;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +31,7 @@ public class BaseTestSite {
     static String browser;
     private static int numOfTest;
 
-    @BeforeTest
+    @BeforeSuite
     public static void OneSetupForAllTests() {
         // удалим старые скриншоты
         LOGGER.info("Delete " + PATH_SCREENSHOT);
@@ -57,7 +55,6 @@ public class BaseTestSite {
 
     public File captureScreenshot(String fileName) {
         try {
-//            WebDriver augmentedDriver = new Augmenter().augment(driver);
             File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String path = PATH_SCREENSHOT + fileName;
             FileUtils.copyFile(source, new File(path));
