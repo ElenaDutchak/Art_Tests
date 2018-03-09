@@ -5,12 +5,6 @@ import org.testng.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/*
-Для построения отчётов Allure:
-1) запускать из терминала (): mvn clean test && mvn allure:report
-2) открыть браузером файл (потом можно просто обновлять): /target/site/allure-maven-plugin/index.html
-*/
-
 public class TestSite extends BaseTestSite {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestSite.class);
