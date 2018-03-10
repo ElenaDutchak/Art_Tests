@@ -10,13 +10,13 @@
     <!--</test>-->
 <!--</suite>-->
 
-<!--<suite name="TestDebugWithoutBrowser">-->
-    <!--<test name="TestDebugWithoutBrowser">-->
-        <!--<classes>-->
-            <!--<class name="net.artc_it.debug.TestDebugWithoutBrowser"> </class>-->
-        <!--</classes>-->
-    <!--</test>-->
-<!--</suite>-->
+<suite name="TestDebugWithoutBrowser">
+    <test name="TestDebugWithoutBrowser">
+        <classes>
+            <class name="net.artc_it.debug.TestDebugWithoutBrowser"> </class>
+        </classes>
+    </test>
+</suite>
 
 <!--<suite name="TestWithNoVisualBrowser">-->
     <!--<test name="PhantomJSDrive">-->
@@ -31,17 +31,17 @@
     <!--</test>-->
 <!--</suite>-->
 
-<suite name="CrossBrowserArtTest">
-    <test name="ChromeTest">
-        <parameter name="browser" value="chrome"/>
-        <packages>
-            <package name="net.artc_it.tests"/>
-        </packages>
-    </test>
-    <test name="FirefoxTest">
-        <parameter name="browser" value="firefox"/>
-        <packages>
-            <package name="net.artc_it.tests"/>
-        </packages>
-    </test>
-</suite>
+<!--<suite name="CrossBrowserArtTest">-->
+    <!--<test name="ChromeTest">-->
+        <!--<parameter name="browser" value="chrome"/>-->
+        <!--<packages>-->
+            <!--<package name="net.artc_it.tests"/>-->
+        <!--</packages>-->
+    <!--</test>-->
+    <!--<test name="FirefoxTest">-->
+        <!--<parameter name="browser" value="firefox"/>-->
+        <!--<packages>-->
+            <!--<package name="net.artc_it.tests"/>-->
+        <!--</packages>-->
+    <!--</test>-->
+<!--</suite>-->

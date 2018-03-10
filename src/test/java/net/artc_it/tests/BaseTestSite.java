@@ -82,6 +82,7 @@ public class BaseTestSite {
             System.setProperty("phantomjs.binary.path", ".\\src\\test\\resources\\drivers\\phantomjs.exe");
             driver = new EventFiringWebDriver(new PhantomJSDriver());
         }
+        else return;
 
         page = new PageSite(driver);
 
