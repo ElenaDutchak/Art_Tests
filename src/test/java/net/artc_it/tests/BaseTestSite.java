@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -28,7 +27,6 @@ public class BaseTestSite {
 
     @BeforeSuite
     public static void OneSetupForAllTests() {
-        // удалим старые скриншоты
         System.out.println("Delete " + PATH_SCREENSHOT);
         try {
             FileUtils.deleteDirectory(new File(PATH_SCREENSHOT));
@@ -45,20 +43,17 @@ public class BaseTestSite {
     @AfterMethod
     public void takeScreenshotWhenFailure(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
-            captureScreenshot(result.getName() + "(" + browser + ").png");
+            captureScreenshot(PATH_SCREENSHOT + result.getName() + "(" + browser + ").png");
         }
     }
 
-    public File captureScreenshot(String fileName) {
+    public void captureScreenshot(String fileName) {
         try {
             File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            String path = PATH_SCREENSHOT + fileName;
-            FileUtils.copyFile(source, new File(path));
-            return source;
+            FileUtils.copyFile(source, new File(fileName));
         }
         catch(IOException e) {
             System.out.println("Failed to capture screenshot (" + fileName + "): " + e.getMessage());
-            return null;
         }
     }
 
@@ -77,10 +72,6 @@ public class BaseTestSite {
             System.setProperty("webdriver.gecko.driver", ".\\src\\test\\resources\\drivers\\geckodriver.exe");
             driver = new EventFiringWebDriver(new FirefoxDriver());
             driver.manage().window().maximize();
-        }
-        else if(browser.equals("novisual")) {
-            System.setProperty("phantomjs.binary.path", ".\\src\\test\\resources\\drivers\\phantomjs.exe");
-            driver = new EventFiringWebDriver(new PhantomJSDriver());
         }
         else return;
 

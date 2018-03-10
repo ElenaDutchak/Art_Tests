@@ -19,7 +19,6 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -31,11 +30,6 @@
             <artifactId>testng</artifactId>
             <version>LATEST</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>phantomjsdriver</artifactId>
-            <version>LATEST</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
