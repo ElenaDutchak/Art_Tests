@@ -12,8 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.Thread.sleep;
-
 public class PageSite {
 
     final String SITE_URL = "http://artc-it.net";
@@ -85,7 +83,7 @@ public class PageSite {
 
     public String getExpectedResultMessage() {
         String langEnColor = langEn.getCssValue("color"); //rgba(0, 27, 51, 1) - active
-        if (langEnColor.equals("rgba(0, 27, 51, 1)"))
+        if (!langEnColor.equals("rgba(0, 27, 51, 0.5)"))
             return "Your message has been sent";
         else return "Сообщение отправлено";
     }
