@@ -33,7 +33,7 @@ public class BaseTestSite {
 
     @BeforeSuite
     public static void OneSetupForAllTests() {
-        // удалим старые скриншоты
+        // delete old screenshots
         LOGGER.info("Delete " + PATH_SCREENSHOT);
         try {
             FileUtils.deleteDirectory(new File(PATH_SCREENSHOT));

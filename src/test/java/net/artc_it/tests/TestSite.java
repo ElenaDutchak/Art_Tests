@@ -18,7 +18,6 @@ public class TestSite extends BaseTestSite {
     @Test
     public void testSendMessage() {
         page.sendMessageForm("tyty", "+380956432133", "gh@fg.com", "qwertyВАРП! +-*345 ПЫВАПап");
-        // ожидаемый результат должен быть - 2-й параметр!
         Assert.assertEquals(page.getTextResultMessage(true), page.getExpectedResultMessage());
     }
 
